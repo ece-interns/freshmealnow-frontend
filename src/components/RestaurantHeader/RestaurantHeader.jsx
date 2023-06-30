@@ -3,12 +3,17 @@ import "./RestaurantHeader.css";
 import { AppName } from "../../utils/constants";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { AiOutlineSearch } from "react-icons/ai";
 import { toast } from "react-toastify";
 import NavItem from "../NavItem/NavItem";
 import { useLogoutRestaurantMutation } from "../../app/restaurantsApiSlice";
 import { deleteCredentialsRestaurant } from "../../app/authSliceRestaurant";
 
 const navItems = [
+  {
+    name: "contact",
+    path: "/contact",
+  },
   {
     name: "profile",
     path: "/restaurant/profile",
@@ -63,6 +68,26 @@ const RestaurantHeader = () => {
           </ul>
         </div>
       </nav>
+      {pathname === "/" && (
+        <div className="search-section">
+          <h1>{AppName}</h1>
+          <div className="search-container">
+            <div className="search-text">Search for best food & drinks</div>
+            <form>
+              <div className="form-group">
+                <label htmlFor="search">
+                  <AiOutlineSearch />
+                </label>
+                <input
+                  id="search"
+                  type="text"
+                  placeholder="Search for dish or restaurant ..."
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
