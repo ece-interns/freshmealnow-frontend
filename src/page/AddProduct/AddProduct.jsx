@@ -24,7 +24,7 @@ const AddProduct = () => {
 
   const [uploadImageApiCall] = useUploadProductImageMutation();
   const [createProduct, { isLoading }] = useCreateProductMutation();
-  const [restaurantInfo] = useSelector((state) => state.authRestaurant);
+  const { restaurantInfo } = useSelector((state) => state.authRestaurant);
 
   const submitHandler = async (e) => {
     e.preventDefault();
