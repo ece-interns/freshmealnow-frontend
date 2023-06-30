@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+.contact {
+    width: 100%;
+    height: 100vh;
+    background-color: #090c31;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact > main {
+    background-color: white;
+    height: 30rem;
+    width: 70%;
+    padding: 3rem;
+    border-radius: 0 200px 200px 0;
+}
+
+.contact > main > form {
+    margin: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact > main > form > div {
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin: 0.5rem;
+}
+
+.contact > main > form > div > label {
+    font: 499 1.2rem "Roboto";
+    width: 20%;
+    margin: 0.1rem;
+}
+
+.contact > main > form > div > input {
+    align-self: stretch;
+    width: 80%;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid black;
+    outline: none;
+}
+
+.contact > main > form > button {
+    margin: 3rem 0;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #5853ff;
+    color: white;
+    width: 200px;
+    font: 500 1rem "Roboto";
+    cursor: pointer;
+}
+
+.contact > main > form > button:hover {
+    opacity: 0.9;
+}
+
+@media screen and (max-width: 768px){
+    .oneone h1{
+        margin-left: -88px;
+        
+        text-align: center;
+        font-size: 1rem;
+    }
+    .contact > main {
+        background-color: white;
+        height: 18rem;
+        width: 78%;
+        padding: 3rem;
+        border-radius: 0 380px 380px 0;
+    }
+   
+    .contact > main > form {
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* border: 2px solid red; */
+        width: 440px;
+        height: 260px;
+    }
+    .contact > main > form > div {
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        margin: 0.5rem;
+    }
+    
+    .contact > main > form > div > label {
+        font: 17px "Roboto";
+        width: 20%;
+        margin: 0.1rem;
+        margin-right: 37px;
+        /* margin-bottom: -44px; */
+       
+    }
+    
+    .contact > main > form > div > input {
+        align-self: stretch;
+        width: 68%;
+        padding: 0rem;
+        border-radius: 5px;
+        border: 1px solid black;
+        outline: none;
+       padding-top: 3px;
+        /* margin-bottom: -44px; */
+    }
+    
+    .contact > main > form > button {
+        margin: 3rem 0;
+        margin-left: 55px;
+        padding: 0.7rem;
+        border: none;
+        border-radius: 5px;
+        background-color: #5853ff;
+        color: white;
+        width: 124px;
+        font: 500  13px "Roboto";
+        cursor: pointer;
+    }
+    
+    .contact > main > form > button:hover {
+        opacity: 0.9;
+    }
+    
+}
+/* 
+mobile */
+@media screen and (max-width: 320px){
+    .oneone h1{
+        margin-left: -88px;
+        margin-top: -34px;
+        text-align: center;
+        font-size: 15px;
+    }
+    .contact > main {
+        background-color: white;
+        height: 8rem;
+        width: 60%;
+        padding: 3rem;
+        border-radius: 0 380px 380px 0;
+    }
+   
+    .contact > main > form {
+        margin: 1rem;
+        margin-top: -7px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* border: 2px solid red; */
+        width:203px;
+        height: 150px;
+        margin-left: -33px;
+    }
+    .contact > main > form > div {
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 94%;
+        margin: 0.5rem;
+    }
+    
+    .contact > main > form > div > label {
+        font: 12px "Roboto";
+        width: 20%;
+        margin: 0.1rem;
+        margin-right: 37px;
+        /* margin-bottom: -44px; */
+       
+    }
+    
+    .contact > main > form > div > input {
+        align-self: stretch;
+        width: 68%;
+        padding: 0rem;
+        border-radius: 5px;
+        border: 1px solid black;
+        outline: none;
+       padding-top: 3px;
+       font-size: 9px;
+        /* margin-bottom: -44px; */
+    }
+
+    .contact > main > form >  button {
+        margin-top: 2px;
+        margin-bottom: -3px;
+        margin-left: 13px;
+        padding: 1px;
+        border: none;
+        border-radius: 5px;
+        background-color: #5853ff;
+        color: white;
+        width:67px;
+        font: 500  13px "Roboto";
+        cursor: pointer;
+    }
+    
+    .contact > main > form > button:hover {
+        opacity: 0.9;
+    }
+    
+}

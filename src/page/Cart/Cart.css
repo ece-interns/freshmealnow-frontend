@@ -1,0 +1,160 @@
+.cartCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 371px;
+  margin-right: 400px;
+  border: 1px solid;
+  height: 186px;
+  border-radius: 15px;
+}
+
+.cartCard img {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  padding-left: 18px;
+}
+
+.cartCard .info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  flex: 1;
+  position: relative;
+}
+
+.cartCard .info h4 {
+  margin: 0;
+}
+
+.cartCard .info h5 {
+  margin: 0;
+  margin-top: 5px;
+}
+
+.cartCard .info .button-wrapper {
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.cartCard button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 51px;
+}
+
+.total {
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-left: 912px;
+  margin-right: 379px;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-size: 15px;
+}
+/* for tablet */
+@media screen and (max-width: 768px) {
+  .cartCard {
+    width: 498px;
+    height: auto;
+    margin-left: 120px;
+    margin-right: 0px;
+    padding: 10px;
+  }
+
+  .cartCard img {
+    width: 80px;
+    height: 80px;
+    margin-left: -22px;
+    margin-right: 10px;
+  }
+
+  .cartCard .info {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+
+  .cartCard .info h4 {
+    font-size: 10px;
+    margin-bottom: 11px;
+  }
+
+  .cartCard .info h5 {
+    font-size: 10px;
+  }
+
+  .cartCard button {
+    width: 60px;
+    height: 22px;
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: 5px;
+  }
+  .total {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: 527px;
+    margin-right: 0px;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-size: 15px;
+  }
+}
+
+/* for mobile */
+@media screen and (max-width: 320px) {
+  .cartCard {
+    width: 286px;
+    height: auto;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 10px;
+  }
+
+  .cartCard img {
+    width: 80px;
+    height: 80px;
+    margin-left: -22px;
+    margin-right: 10px;
+  }
+
+  .cartCard .info {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+
+  .cartCard .info h4 {
+    font-size: 10px;
+    margin-bottom: 11px;
+  }
+
+  .cartCard .info h5 {
+    font-size: 10px;
+  }
+
+  .cartCard button {
+    width: 60px;
+    height: 22px;
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: 5px;
+  }
+  .total {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: 190px;
+    margin-right: 0px;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-size: 15px;
+  }
+}

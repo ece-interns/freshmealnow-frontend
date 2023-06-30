@@ -1,0 +1,113 @@
+.header{
+    width: 100%;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+.home{
+    background-image: url("../../assets/background-2.avif");
+    background-position: center;
+    background-size: cover;
+    height: 60vh;
+    color: #fff;
+}
+.other{
+    color:#000;
+}
+.home a{
+    color: #fff;
+}
+.other a{
+    color: #000;
+}
+.header .logo{
+    font-size: 1.8rem;
+}
+.header a{
+    text-decoration: none;
+}
+nav{
+    display: flex;
+    padding: 1% 5%;
+    justify-content: space-between;
+    align-items: center;
+}
+nav .nav-links{
+    flex: 1;
+    text-align: right;
+}
+nav .nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+nav .nav-links ul li:hover{
+    cursor: pointer;
+}
+nav .nav-links ul li a{
+    text-decoration: none;
+    font-size: 13px;
+}
+nav .nav-links ul li.nav-inactive::after{
+    content: "";
+    width: 0;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+nav .nav-links ul li.nav-inactive:hover::after{
+    width: 100%;
+}
+nav .nav-links ul li.nav-active::after{
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.search-section{
+    text-align: center;
+    margin: 80px 10px 10px 10px;
+}
+.search-section h1{
+    font-size: 3rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+.search-container .form-group{
+    display: flex;
+    width: 70%;
+    max-width: 700px;
+    margin: 10px auto;
+    background-color: #fff;
+    color: #000;
+    height: 40px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+.search-container .form-group label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 100%;
+    font-size: 20px;
+    cursor: pointer;
+}
+.search-container .form-group input{
+    flex: 1;
+    height: 100%;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    font-style: italic;
+}
+.search-container .search-text{
+    font-size: 20px;
+    margin: 10px auto 20px auto;
+}

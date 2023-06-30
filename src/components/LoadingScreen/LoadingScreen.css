@@ -1,0 +1,17 @@
+.loader-screen{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 5;
+}
+.loader{
+    position: absolute;
+    top: 36%;
+    left: 48%;
+    translate: transform(-50%,-50%);
+    z-index: 10;
+}
