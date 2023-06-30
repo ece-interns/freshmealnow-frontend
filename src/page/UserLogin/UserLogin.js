@@ -37,7 +37,7 @@ const UserLogin = () => {
   };
   return (
     <>
-      <div>
+      <div className="container">
         <h1>Login</h1>
         {isLoading && <h3>Loading ...</h3>}
         <form onSubmit={submitHandler}>

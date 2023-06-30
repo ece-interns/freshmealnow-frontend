@@ -40,7 +40,7 @@ const UserProfile = () => {
 
   return (
     <>
-      <div>
+      <div className="UserContainer">
         <h1>Update Profile</h1>
         {isLoading && <h3>Loading ...</h3>}
         <form onSubmit={submitHandler}>

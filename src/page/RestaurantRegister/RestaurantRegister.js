@@ -129,16 +129,17 @@ const RestaurantRegister = () => {
 
   return (
     <>
-      <div>
+      <div className="restrauntregis">
         <h1>Restaurant Register</h1>
         {(loading || isLoading) && <LoadingScreen />}
         <form onSubmit={submitHandler}>
           <div className="form-group">
+            <div className="getlocation">
             <input
               type="button"
               onClick={getLocationHandler}
               value="Get Location"
-            />
+            /></div>
             {address ? <span>got location</span> : <span>allow location</span>}
             {address && (
               <div>
@@ -218,6 +219,7 @@ const RestaurantRegister = () => {
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
+              type="email"
               id="email"
               placeholder="Enter Email ..."
               className="form-control"
@@ -229,6 +231,7 @@ const RestaurantRegister = () => {
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
+              type="password"
               id="password"
               placeholder="Enter Password ..."
               className="form-control"
@@ -240,6 +243,7 @@ const RestaurantRegister = () => {
           <div className="form-group">
             <label htmlFor="pin">Pin</label>
             <input
+              type="number"
               id="pin"
               placeholder="Enter Pin ..."
               className="form-control"
@@ -248,7 +252,7 @@ const RestaurantRegister = () => {
               required={true}
             />
           </div>
-          <div className="form-group">
+          <div className="form-control">
             <label htmlFor="description">Description</label>
             <textarea
               id="description"
@@ -258,7 +262,7 @@ const RestaurantRegister = () => {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          <button type="submit">Register</button>
+          <button type="submit">Add the product</button>
         </form>
         <div>
           Already Have An Account? <Link to="/restaurant/login">Login</Link>

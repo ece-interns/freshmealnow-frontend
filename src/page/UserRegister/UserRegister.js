@@ -39,49 +39,49 @@ const UserRegister = () => {
 
   return (
     <>
-      <div>
+      <div className="containRegister">
         <h1>Register</h1>
         {isLoading && <h3>Loading ...</h3>}
         <form onSubmit={submitHandler}>
-          <div className="form-group">
+          <div className="form-group2">
             <label htmlFor="name">Name</label>
             <input
               id="name"
               placeholder="Enter Name ..."
-              className="form-control"
+              className="form-control2"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required={true}
             />
           </div>
-          <div className="form-group">
+          <div className="form-group2">
             <label htmlFor="email">Email</label>
             <input
               id="email"
               placeholder="Enter Email ..."
-              className="form-control"
+              className="form-control2"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required={true}
             />
           </div>
-          <div className="form-group">
+          <div className="form-group2">
             <label htmlFor="password">Password</label>
             <input
               id="password"
               placeholder="Enter Password ..."
-              className="form-control"
+              className="form-control2"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required={true}
             />
           </div>
-          <div className="form-group">
+          <div className="form-group2">
             <label htmlFor="mobile_no">Mobile_no</label>
             <input
               id="mobile_no"
               placeholder="Enter Mobile No ..."
-              className="form-control"
+              className="form-control2"
               value={mobile_no}
               onChange={(e) => setMobile_no(e.target.value)}
               required={true}

@@ -1,0 +1,149 @@
+.restrauntregis {
+    max-width: 531px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .restrauntregis h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    
+  }
+  
+  .form-group input {
+    width: 95%;
+    background-color: white;
+  }
+  
+  .getlocation input {
+    background-color: rgb(222, 175, 176);
+    width: 99%;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .form-control input {
+      width: 97%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #a02828;
+      border-radius: 4px;
+    }
+    
+      
+    .form-control textarea {
+    width: 97%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #a02828;
+    border-radius: 4px;
+    resize: vertical; 
+    height: 100px; 
+  }
+  .form-group button{
+    border: none;
+    height:30px;
+    width: 70px;
+    border-radius: 4px;
+    background-color: #7ec280;
+    color: white;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .file-upload-btn {
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-top: 8px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .file-upload-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .file-uploaded {
+    display: inline-block;
+    margin-left: 10px;
+    color: #4caf50;
+    font-size: 16px;
+  }
+  
+  .tick-mark {
+    vertical-align: middle;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 16px;
+    margin-bottom: 15px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  div > a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  div > a:hover {
+    text-decoration: underline;
+  }
+  
+  .loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+  
+  .loading-screen > .loader {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
