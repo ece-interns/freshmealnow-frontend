@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 
 const Header = () => {
   const [activeItem, setActiveItem] = useState("");
+  const [search, setSearch] = useState("");
   const { pathname } = useLocation();
 
   const dispatch = useDispatch();
@@ -21,20 +22,34 @@ const Header = () => {
 
   let items;
   if (userInfo) {
-    items = [...navItems, { name: "profile", path: "/user/profile" }];
+    items = [
+      ...navItems,
+      { name: "Cart", path: "/cart" },
+      { name: "profile", path: "/user/profile" },
+    ];
   } else {
-    items = [...navItems, { name: "login", path: "/user/login" }];
+    items = [
+      ...navItems,
+      { name: "Seller", path: "/restaurant/login" },
+      { name: "login", path: "/user/login" },
+    ];
   }
 
   const logoutHandler = async () => {
     try {
       await logout().unwrap();
       dispatch(deleteCredentials());
-      toast.success("Logged out Successfully");
+      toast.success("Logged out Successfully", { autoClose: 1000 });
       navigate("/");
     } catch (err) {
       console.log(err?.data?.message || err);
     }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (search.length === 0) return;
+    navigate(`/search/${search}`);
   };
 
   useEffect(() => {
@@ -68,9 +83,9 @@ const Header = () => {
       {pathname === "/" && (
         <div className="search-section">
           <h1>{AppName}</h1>
-          <div className="search-container">
+          <div className="header-comp search-container">
             <div className="search-text">Search for best food & drinks</div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="search">
                   <AiOutlineSearch />
@@ -78,6 +93,8 @@ const Header = () => {
                 <input
                   id="search"
                   type="text"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search for dish or restaurant ..."
                 />
               </div>

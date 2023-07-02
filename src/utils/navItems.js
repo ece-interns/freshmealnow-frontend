@@ -7,9 +7,5 @@ const navItems = [
     name: "contact",
     path: "/contact",
   },
-  {
-    name: "cart",
-    path: "/cart",
-  },
 ];
 export default navItems;

@@ -18,8 +18,22 @@ export const productsApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    getProductByRestaurantId: builder.query({
+      query: (id) => ({
+        url: `${PRODUCTS_URL}/${id}`,
+      }),
+    }),
+    searchProduct: builder.query({
+      query: (text) => ({
+        url: `${PRODUCTS_URL}/search?q=${text}`,
+      }),
+    }),
   }),
 });
 
-export const { useCreateProductMutation, useUploadProductImageMutation } =
-  productsApiSlice;
+export const {
+  useCreateProductMutation,
+  useUploadProductImageMutation,
+  useGetProductByRestaurantIdQuery,
+  useSearchProductQuery,
+} = productsApiSlice;

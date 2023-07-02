@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRegisterMutation } from "../../app/usersApiSlice";
 import { setCredentials } from "../../app/authSlice";
 import { toast } from "react-toastify";
+import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 
 const UserRegister = () => {
   const [name, setName] = useState("");
@@ -29,11 +30,10 @@ const UserRegister = () => {
     try {
       const res = await register({ name, email, password, mobile_no }).unwrap();
       dispatch(setCredentials({ ...res }));
-      toast.success("Registration Successful");
+      toast.success("Registration Successful", { autoClose: 1000 });
       navigate("/");
     } catch (err) {
-      console.log(err?.data?.message || err.error);
-      toast.error(err?.data?.message || err.error);
+      toast.error(err?.data?.message || err.error, { autoClose: 1000 });
     }
   };
 
@@ -41,7 +41,7 @@ const UserRegister = () => {
     <>
       <div className="containRegister">
         <h1>Register</h1>
-        {isLoading && <h3>Loading ...</h3>}
+        {isLoading && <LoadingScreen />}
         <form onSubmit={submitHandler}>
           <div className="form-group2">
             <label htmlFor="name">Name</label>
@@ -87,7 +87,9 @@ const UserRegister = () => {
               required={true}
             />
           </div>
-          <button type="submit">Register</button>
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? "Loading..." : "Register"}
+          </button>
         </form>
         <div>
           Already Have An Account? <Link to="/user/login">Login</Link>

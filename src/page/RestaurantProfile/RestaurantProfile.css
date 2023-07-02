@@ -1,0 +1,30 @@
+.restaurant-profile {
+  padding: 20px 10px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.restaurant-profile .add-product-btn {
+  display: inline-block;
+  cursor: pointer;
+  padding: 4px 8px;
+  box-shadow: 0 1px 3px 0 #a6a4a4;
+}
+.restaurant-profile .add-product-btn a {
+  text-decoration: none;
+}
+.restaurant-profile h1 {
+  text-align: center;
+  margin: 10px 0 20px 0;
+}
+.restaurant-profile .info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.restaurant-profile .info p {
+  font-size: 13px;
+  margin-right: 4px;
+}
+.restaurant-profile .info button {
+  margin-left: 4px;
+}

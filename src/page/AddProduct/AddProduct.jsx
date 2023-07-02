@@ -30,11 +30,11 @@ const AddProduct = () => {
     e.preventDefault();
     if (loading) return;
     if (!name || !cuisine || !category || !price || !description || !image) {
-      toast.info("Fill all the required fields");
+      toast.info("Fill all the required fields", { autoClose: 1000 });
       return;
     }
     try {
-      const res = await createProduct({
+      await createProduct({
         restaurantId: restaurantInfo._id,
         name,
         cuisine,
@@ -43,10 +43,10 @@ const AddProduct = () => {
         description,
         image,
       }).unwrap();
-      toast.success("Product Added");
+      toast.success("Product Added", { autoClose: 1000 });
       navigate("/restaurant/profile");
     } catch (err) {
-      toast.error(err?.data?.message || err.error);
+      toast.error(err?.data?.message || err.error, { autoClose: 1000 });
     }
   };
 
@@ -64,17 +64,17 @@ const AddProduct = () => {
       if (data.url) {
         setImage(data);
         setImageFile(null);
-        toast.info("Image Uploaded");
+        toast.info("Image Uploaded", { autoClose: 1000 });
       }
     } catch (err) {
       setLoading(false);
-      toast.error("Something Went Wrong");
+      toast.error("Something Went Wrong", { autoClose: 1000 });
     }
   };
 
   return (
     <>
-      <div>
+      <div className="container">
         <h1>Add Product</h1>
         {(loading || isLoading) && <LoadingScreen />}
         <form onSubmit={submitHandler}>
@@ -151,9 +151,9 @@ const AddProduct = () => {
               onChange={(e) => setPrice(e.target.value)}
               required={true}
             />
-            <div className="form-group">
+            <div className="form-control">
               <label htmlFor="description">Description</label>
-              <input
+              <textarea
                 id="description"
                 placeholder="Enter Description ..."
                 className="form-control"
@@ -163,7 +163,9 @@ const AddProduct = () => {
               />
             </div>
           </div>
-          <button type="submit">Register</button>
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? "Loading..." : "Add Product"}
+          </button>
         </form>
       </div>
     </>

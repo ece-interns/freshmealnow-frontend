@@ -26,6 +26,8 @@ const RestaurantRegister = () => {
   const [imageFiles, setImageFiles] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const [locationLoading, setLocationLoading] = useState(false);
+
   // const [latitude, setLatitude] = useState(0);
   // const [longitude, setLongitude] = useState(0);
 
@@ -46,7 +48,7 @@ const RestaurantRegister = () => {
     e.preventDefault();
     if (loading) return;
     if (!name || !email || !password || !address || !pin) {
-      toast.info("Fill all the required fields");
+      toast.info("Fill all the required fields", { autoClose: 1000 });
       return;
     }
     const { county, postcode, state_district, state, country } = address;
@@ -63,14 +65,15 @@ const RestaurantRegister = () => {
         images,
       }).unwrap();
       dispatch(setCredentialsRestaurant({ ...res }));
-      toast.success("Registration Successful");
+      toast.success("Registration Successful", { autoClose: 1000 });
       navigate("/restaurant/profile");
     } catch (err) {
-      toast.error(err?.data?.message || err.error);
+      toast.error(err?.data?.message || err.error, { autoClose: 1000 });
     }
   };
 
   const getLocationHandler = () => {
+    setLocationLoading(true);
     navigator.geolocation.getCurrentPosition(async (location) => {
       const { data, error } = await getLocation(
         location.coords.latitude,
@@ -79,6 +82,7 @@ const RestaurantRegister = () => {
       if (data) setAddress(data.address);
       else if (error) console.log(error);
     });
+    setLocationLoading(false);
   };
 
   const uploadFeaturedImage = async () => {
@@ -95,11 +99,11 @@ const RestaurantRegister = () => {
       if (image.url) {
         setFeaturedImage(image);
         setFeaturedImageFile(null);
-        toast.info("Image Uploaded");
+        toast.info("Image Uploaded", { autoClose: 1000 });
       }
     } catch (err) {
       setLoading(false);
-      toast.error("Something Went Wrong");
+      toast.error("Something Went Wrong", { autoClose: 1000 });
     }
   };
 
@@ -119,11 +123,11 @@ const RestaurantRegister = () => {
       if (data) {
         setImages(data);
         setImageFiles([]);
-        toast.info("Images Uploaded");
+        toast.info("Images Uploaded", { autoClose: 1000 });
       }
     } catch (err) {
       setLoading(false);
-      toast.error("Error occured");
+      toast.error("Error occured", { autoClose: 1000 });
     }
   };
 
@@ -134,16 +138,20 @@ const RestaurantRegister = () => {
         {(loading || isLoading) && <LoadingScreen />}
         <form onSubmit={submitHandler}>
           <div className="form-group">
-            <div className="getlocation">
-            <input
-              type="button"
-              onClick={getLocationHandler}
-              value="Get Location"
-            /></div>
-            {address ? <span>got location</span> : <span>allow location</span>}
-            {address && (
-              <div>
-                <span>district :{address.state_district}</span>
+            {address ? (
+              <div className="address">
+                {address.village && <div>Village : {address.village}</div>}
+                {address.county && <div>Town : {address.county}</div>}
+                <div>district : {address.state_district}</div>
+                <div>state : {address.state}</div>
+              </div>
+            ) : (
+              <div className="getlocation">
+                <input
+                  type="button"
+                  onClick={getLocationHandler}
+                  value={locationLoading ? "Loading..." : "Get Location"}
+                />
               </div>
             )}
           </div>
@@ -193,7 +201,7 @@ const RestaurantRegister = () => {
             />
             <button
               onClick={uploadImages}
-              className="mt-4 bg-blue-600 py-1 px-2 text-white shadow hover:shadow-black"
+              className="file-upload-btn"
               type="button"
             >
               Upload
@@ -262,7 +270,9 @@ const RestaurantRegister = () => {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          <button type="submit">Add the product</button>
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? "Loading..." : "Register"}
+          </button>
         </form>
         <div>
           Already Have An Account? <Link to="/restaurant/login">Login</Link>

@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { API_URL } from "../utils/constants";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "https://freshmealnow.up.railway.app",
+  baseUrl: API_URL,
   prepareHeaders(headers) {
     return headers;
   },

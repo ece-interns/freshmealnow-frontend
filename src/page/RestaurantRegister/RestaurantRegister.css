@@ -19,13 +19,17 @@
   }
   
   .form-group input {
-    width: 95%;
+    width: 100%;
     background-color: white;
   }
   
   .getlocation input {
-    background-color: rgb(222, 175, 176);
-    width: 99%;
+    background-color: #31cbc0;
+    width: 100%;
+    cursor: pointer;
+  }
+  .getlocation input:hover{
+    background-color: #25bdb3;
   }
   
   .form-group label {
@@ -33,7 +37,7 @@
     margin-bottom: 5px;
   }
   .form-control input {
-      width: 97%;
+      width: 100%;
       padding: 10px;
       font-size: 16px;
       border: 1px solid #a02828;
@@ -41,8 +45,8 @@
     }
     
       
-    .form-control textarea {
-    width: 97%;
+  .form-control textarea {
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #a02828;
@@ -53,7 +57,7 @@
   .form-group button{
     border: none;
     height:30px;
-    width: 70px;
+    width: 100px;
     border-radius: 4px;
     background-color: #7ec280;
     color: white;
@@ -119,7 +123,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 1000%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -130,12 +134,15 @@
   
   .loading-screen > .loader {
     display: inline-block;
-    width: 50px;
+    width: 100px;
     height: 50px;
     border: 5px solid #f3f3f3;
     border-top: 5px solid #3498db;
     border-radius: 50%;
     animation: spin 1s linear infinite;
+  }
+  .restrauntregis .address{
+    text-transform: capitalize;
   }
   
   @keyframes spin {

@@ -22,6 +22,7 @@ const navItems = [
 
 const RestaurantHeader = () => {
   const [activeItem, setActiveItem] = useState("");
+  const [search, setSearch] = useState("");
   const { pathname } = useLocation();
 
   const dispatch = useDispatch();
@@ -33,16 +34,23 @@ const RestaurantHeader = () => {
     try {
       await logout().unwrap();
       dispatch(deleteCredentialsRestaurant());
-      toast.success("Logged out Successfully");
+      toast.success("Logged out Successfully", { autoClose: 1000 });
       navigate("/restaurant/login");
     } catch (err) {
       console.log(err?.data?.message || err);
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (search.length === 0) return;
+    navigate(`/search/${search}`);
+  };
+
   useEffect(() => {
     setActiveItem(pathname);
   }, [pathname]);
+
   return (
     <header className={`header ${pathname === "/" ? "home" : "other"}`}>
       <nav>
@@ -73,7 +81,7 @@ const RestaurantHeader = () => {
           <h1>{AppName}</h1>
           <div className="search-container">
             <div className="search-text">Search for best food & drinks</div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="search">
                   <AiOutlineSearch />
@@ -81,6 +89,8 @@ const RestaurantHeader = () => {
                 <input
                   id="search"
                   type="text"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search for dish or restaurant ..."
                 />
               </div>

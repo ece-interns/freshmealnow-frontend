@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./UserLogin.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 import { useLoginMutation } from "../../app/usersApiSlice";
 import { setCredentials } from "../../app/authSlice";
 import { toast } from "react-toastify";
@@ -27,19 +28,17 @@ const UserLogin = () => {
     try {
       const res = await login({ email, password }).unwrap();
       dispatch(setCredentials({ ...res }));
-      toast.success("Login Successful");
+      toast.success("Login Successful", { autoClose: 1000 });
       navigate("/");
     } catch (err) {
-      console.log(err);
-      console.log(err?.data?.message || err.error);
-      toast.error(err?.data?.message || err.error);
+      toast.error(err?.data?.message || err.error, { autoClose: 1000 });
     }
   };
   return (
     <>
       <div className="container">
         <h1>Login</h1>
-        {isLoading && <h3>Loading ...</h3>}
+        {isLoading && <LoadingScreen />}
         <form onSubmit={submitHandler}>
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -63,7 +62,9 @@ const UserLogin = () => {
               required={true}
             />
           </div>
-          <button type="submit">Login</button>
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? "Loading..." : "Login"}
+          </button>
         </form>
         <div>
           Don't Have An Account? <Link to="/user/register">Resister</Link>

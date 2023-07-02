@@ -2,9 +2,11 @@
     width: 100%;
     position: relative;
     font-family: 'Poppins', sans-serif;
+    /* border-bottom: 1px solid #cac9c9; */
+    box-shadow: 0 0 4px 0 #c4c0c0;
 }
 .home{
-    background-image: url("../../assets/background-2.avif");
+    background-image: url("../../assets/background-2.jpg");
     background-position: center;
     background-size: cover;
     height: 60vh;
@@ -79,7 +81,7 @@ nav .nav-links ul li.nav-active::after{
 }
 .search-container .form-group{
     display: flex;
-    width: 70%;
+    width: 100%;
     max-width: 700px;
     margin: 10px auto;
     background-color: #fff;

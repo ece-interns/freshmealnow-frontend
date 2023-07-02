@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCredentials } from "../../app/authSlice";
 import { toast } from "react-toastify";
 import { useUpdateUserMutation } from "../../app/usersApiSlice";
+import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 
 const UserProfile = () => {
   const [name, setName] = useState("");
@@ -31,10 +32,9 @@ const UserProfile = () => {
       }
       const res = await updateProfile(user).unwrap();
       dispatch(setCredentials({ ...res }));
-      toast.success("Profile Updated");
+      toast.success("Profile Updated", { autoClose: 1000 });
     } catch (err) {
-      console.log(err?.data?.message || err.error);
-      toast.error(err?.data?.message || err.error);
+      toast.error(err?.data?.message || err.error, { autoClose: 1000 });
     }
   };
 
@@ -42,7 +42,7 @@ const UserProfile = () => {
     <>
       <div className="UserContainer">
         <h1>Update Profile</h1>
-        {isLoading && <h3>Loading ...</h3>}
+        {isLoading && <LoadingScreen />}
         <form onSubmit={submitHandler}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
@@ -87,7 +87,9 @@ const UserProfile = () => {
               required={true}
             />
           </div>
-          <button type="submit">Update</button>
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? "Loading..." : "Update"}
+          </button>
         </form>
       </div>
     </>

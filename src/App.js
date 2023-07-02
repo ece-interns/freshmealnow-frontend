@@ -8,7 +8,7 @@ import RestaurantHeader from "./components/RestaurantHeader/RestaurantHeader";
 
 // pages
 import Home from "../src/page/Home/Home";
-import Product from "./components/Products/Product";
+// import Product from "./components/Products/Products";
 import Cart from "../src/page/Cart/Cart";
 import About from "../src/page/About/About";
 import Contact from "../src/page/Contact/Contact";
@@ -23,6 +23,9 @@ import RestaurantProfile from "./page/RestaurantProfile/RestaurantProfile";
 import { useSelector } from "react-redux";
 import AddProduct from "./page/AddProduct/AddProduct";
 import RestaurantPage from "./page/RestaurantPage/RestaurantPage";
+import PaymentSuccess from "./page/PaymentSuccess/PaymentSuccess";
+import Search from "./page/Search/Search";
+import PaymentFailed from "./page/PaymentFailed/PaymentFailed";
 
 function App() {
   const { restaurantInfo } = useSelector((state) => state.authRestaurant);
@@ -34,13 +37,18 @@ function App() {
         <Route path="/" element={<Home />} index={true} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/products" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
         <Route path="/user/login" element={<UserLogin />} />
+        <Route path="/search/:query" element={<Search />} />
         <Route path="/user/register" element={<UserRegister />} />
         {/* start private route */}
         <Route path="" element={<PrivateRoute />}>
           <Route path="/user/profile" element={<UserProfile />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/paymentsuccess/:session_id"
+            element={<PaymentSuccess />}
+          />
+          <Route path="/paymentfailed" element={<PaymentFailed />} />
         </Route>
         {/* end private route */}
         <Route path="/restaurant/login" element={<RestaurantLogin />} />
@@ -51,7 +59,7 @@ function App() {
           <Route path="/restaurant/add-product" element={<AddProduct />} />
         </Route>
         {/* end private route */}
-        <Route path="/r/:slug" element={<RestaurantPage />} />
+        <Route path="/r/:id" element={<RestaurantPage />} />
       </Routes>
       <Footer />
     </div>

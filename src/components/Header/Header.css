@@ -4,7 +4,7 @@
     font-family: 'Poppins', sans-serif;
 }
 .home{
-    background-image: url("../../assets/background-2.avif");
+    background-image: url("../../assets/background-2.jpg");
     background-position: center;
     background-size: cover;
     height: 60vh;
@@ -23,6 +23,9 @@
     font-size: 1.8rem;
 }
 .header a{
+    text-decoration: none;
+}
+nav a,nav a:hover{
     text-decoration: none;
 }
 nav{
@@ -77,10 +80,10 @@ nav .nav-links ul li.nav-active::after{
     font-size: 3rem;
     font-family: 'Courier New', Courier, monospace;
 }
-.search-container .form-group{
+.header-comp.search-container .form-group{
     display: flex;
-    width: 70%;
-    max-width: 700px;
+    width: 80%;
+    max-width: 900px;
     margin: 10px auto;
     background-color: #fff;
     color: #000;
@@ -88,7 +91,7 @@ nav .nav-links ul li.nav-active::after{
     border: 1px solid #000;
     border-radius: 10px;
 }
-.search-container .form-group label{
+.header-comp.search-container .form-group label{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,7 +100,7 @@ nav .nav-links ul li.nav-active::after{
     font-size: 20px;
     cursor: pointer;
 }
-.search-container .form-group input{
+.header-comp.search-container .form-group input{
     flex: 1;
     height: 100%;
     padding: 10px 20px;
@@ -107,7 +110,7 @@ nav .nav-links ul li.nav-active::after{
     font-size: 18px;
     font-style: italic;
 }
-.search-container .search-text{
+.header-comp.search-container .search-text{
     font-size: 20px;
     margin: 10px auto 20px auto;
 }

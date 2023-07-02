@@ -59,6 +59,16 @@ export const restaurantsApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    getRestaurantsByLocation: builder.query({
+      query: (district) => ({
+        url: `${RESTAURANTS_URL}/d/${district}`,
+      }),
+    }),
+    getRestaurantById: builder.query({
+      query: (id) => ({
+        url: `${RESTAURANTS_URL}/${id}`,
+      }),
+    }),
   }),
 });
 
@@ -71,4 +81,6 @@ export const {
   useDeleteFeaturedImageMutation,
   useUploadImagesMutation,
   useDeleteImagesMutation,
+  useGetRestaurantsByLocationQuery,
+  useGetRestaurantByIdQuery,
 } = restaurantsApiSlice;
