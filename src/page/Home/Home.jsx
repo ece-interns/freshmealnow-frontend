@@ -6,6 +6,7 @@ import getLocation from "../../utils/getLocation";
 
 const Home = () => {
   const [district, setDistrict] = useState("kamrup");
+  const [place, setPlace] = useState("The Town");
 
   const getLocationHandler = () => {
     navigator.geolocation.getCurrentPosition(async (location) => {
@@ -13,7 +14,14 @@ const Home = () => {
         location.coords.latitude,
         location.coords.longitude
       );
-      if (data) setDistrict(data?.address?.state_district);
+      if (data) {
+        setPlace(
+          data?.address?.county ||
+            data?.address?.town ||
+            data?.address?.state_district
+        );
+        setDistrict(data?.address?.state_district);
+      }
     });
   };
 
@@ -26,7 +34,7 @@ const Home = () => {
   return (
     <>
       <div className="homepage">
-        <h1 className="heading">Popular Restaurants in the town</h1>
+        <h1 className="heading">Popular Restaurants In {place}</h1>
         <div className="card-container">
           {restaurants &&
             restaurants.map((restaurant) => (

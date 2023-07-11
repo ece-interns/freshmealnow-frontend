@@ -8,8 +8,13 @@ const Card = ({ _id, name, featuredImage, description }) => {
     <>
       <div className="card" onClick={() => navigate(`/r/${_id}`)}>
         <img src={featuredImage.url} alt="restaurant" />
-        <h1>{name}</h1>
-        <div className="desc">{description}</div>
+        <h1 className="truncate-1">{name}</h1>
+        <div className="desc truncate-2">
+          {description} Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Ipsam eos quibusdam animi libero itaque voluptatem quia, nemo minima
+          eveniet accusantium recusandae molestiae laborum unde repellat.
+          Deleniti sit necessitatibus nam. In.
+        </div>
       </div>
     </>
   );
