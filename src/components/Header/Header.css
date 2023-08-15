@@ -149,7 +149,7 @@ nav .nav-links ul li.nav-active::after {
   margin: 10px auto 20px auto;
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 708px) {
   nav .nav-links {
     visibility: hidden;
   }
