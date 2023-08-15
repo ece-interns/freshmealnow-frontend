@@ -26,12 +26,22 @@ import RestaurantPage from "./page/RestaurantPage/RestaurantPage";
 import PaymentSuccess from "./page/PaymentSuccess/PaymentSuccess";
 import Search from "./page/Search/Search";
 import PaymentFailed from "./page/PaymentFailed/PaymentFailed";
+import { useState } from "react";
 
 function App() {
+  const [sideMenuOpen, setSideMenuOpen] = useState(false);
   const { restaurantInfo } = useSelector((state) => state.authRestaurant);
   return (
     <div className="App">
-      {restaurantInfo ? <RestaurantHeader /> : <Header page="home" />}
+      {restaurantInfo ? (
+        <RestaurantHeader />
+      ) : (
+        <Header
+          page="home"
+          sideMenuOpen={sideMenuOpen}
+          setSideMenuOpen={setSideMenuOpen}
+        />
+      )}
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} index={true} />

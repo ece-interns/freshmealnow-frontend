@@ -6,6 +6,7 @@ import { useGetRestaurantByIdQuery } from "../../app/restaurantsApiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../app/cartSlice";
 import { toast } from "react-toastify";
+import Rating from "@mui/material/Rating";
 
 const RestaurantPage = () => {
   const [search, setSearch] = useState("");
@@ -63,6 +64,15 @@ const RestaurantPage = () => {
           </div>
           <h1 className="heading">{restaurant.name}</h1>
           <div className="desc">{restaurant.description}</div>
+          {/* rating start */}
+          <div className="rating-container">
+            <Rating
+              name="read-only"
+              value={restaurant.rating ? restaurant.rating : 4}
+              readOnly
+            />
+          </div>
+          {/* rating end */}
         </section>
       ) : (
         <h1 className="loading">Loading...</h1>

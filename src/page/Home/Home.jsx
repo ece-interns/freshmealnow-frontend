@@ -7,6 +7,7 @@ import getLocation from "../../utils/getLocation";
 const Home = () => {
   const [district, setDistrict] = useState("kamrup");
   const [place, setPlace] = useState("The Town");
+  const [x, setX] = useState("a");
 
   const getLocationHandler = () => {
     navigator.geolocation.getCurrentPosition(async (location) => {
@@ -23,11 +24,12 @@ const Home = () => {
         setDistrict(data?.address?.state_district);
       }
     });
+    setX("chiranjib");
   };
 
   useEffect(() => {
     getLocationHandler();
-  }, []);
+  }, [x]);
 
   const { data: restaurants } = useGetRestaurantsByLocationQuery(district);
 
